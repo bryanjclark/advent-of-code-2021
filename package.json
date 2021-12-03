@@ -1,0 +1,12 @@
+{
+  "name": "advent-of-code-2021",
+  "version": "1.0.0",
+  "main": "dec_.js",
+  "repository": "https://github.com/bryanjclark/advent-of-code-2021.git",
+  "author": "Bryan Clark <contact@bryanjclark.com>",
+  "license": "MIT",
+  "private": false,
+  "dependencies": {
+    "lodash": "^4.17.21"
+  }
+}
