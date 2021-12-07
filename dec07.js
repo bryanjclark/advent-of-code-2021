@@ -24,10 +24,9 @@ const solution = (input, isPartTwo) => {
 
   // Max X
   const maxX = _.max(parsed);
-  let bestChoice = 0;
-  let bestChoiceTotal = 10000000000000000000000000000000;
+  let bestChoice = null;
+  let bestChoiceTotal = null;
   for (let pos = 0; pos <= maxX; pos++) {
-    // Get the total distance for all crabs
     let totalDistance = 0;
     for (const crab of parsed) {
       if (isPartTwo) {
@@ -36,12 +35,12 @@ const solution = (input, isPartTwo) => {
         totalDistance += Math.abs(crab - pos);
       }
     }
-    if (totalDistance < bestChoiceTotal) {
+    if (bestChoiceTotal == null || totalDistance < bestChoiceTotal) {
       bestChoice = pos;
       bestChoiceTotal = totalDistance;
     }
   }
-  return `${bestChoice} pos means ${bestChoiceTotal} fuel`;
+  return `position ${bestChoice} is optimal, using ${bestChoiceTotal} fuel`;
 };
 
 console.log(`partOne testInput: ${solution(TEST_INPUT, false)}`);
