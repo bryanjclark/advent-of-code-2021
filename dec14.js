@@ -50,43 +50,6 @@ const parseInput = (input) => {
   return { state, instructions, stateLast };
 };
 
-// const advanceState = (state, instructions) => {
-//   // If a string matches an instruction, evolve it, otherwise just keep it.
-//   const knownKeys = Object.keys(state);
-
-//   const preservedKeys = knownKeys.filter((k) => {
-//     const applicableInstructions = instructions.filter((i) => i[0] === k);
-//     return applicableInstructions.length === 0;
-//   });
-
-//   const applicableInstructions = instructions.filter((i) =>
-//     knownKeys.includes(i[0])
-//   );
-
-//   const newSpawn = applicableInstructions
-//     .map((i) => {
-//       const newKeyA = `${i[0][0]}${i[1]}`;
-//       const newKeyB = `${i[1]}${i[0][1]}`;
-//       return [newKeyA, newKeyB];
-//     })
-//     .flat();
-
-//   const newState = {};
-//   for (const preserved of preservedKeys) {
-//     newState[preserved] = state[preserved];
-//   }
-
-//   for (const spawn of newSpawn) {
-//     if (state[spawn]) {
-//       newState[spawn] = state[spawn] + 1;
-//     } else {
-//       newState[spawn] = 1;
-//     }
-//   }
-
-//   return newState;
-// };
-
 const advanceState = (state, instructions) => {
   // If a string matches an instruction, evolve it, otherwise just keep it.
   const knownPairs = Object.keys(state);
